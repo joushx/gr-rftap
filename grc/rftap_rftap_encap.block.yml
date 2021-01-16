@@ -8,8 +8,8 @@ parameters:
 - id: encapsulation_from
   label: Type
   dtype: enum
-  default: 0
-  options: [0, 1, 2, 3]
+  default: "0"
+  options: ["0", "1", "2", "3"]
   option_labels: ["From PDU \"dlt\" key", "From PDU \"dissector\" key", "Custom DLT", "Custom dissector"]
 - id: custom_dlt
   label: Data Link Type
