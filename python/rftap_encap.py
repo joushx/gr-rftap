@@ -151,6 +151,18 @@ class rftap_encap(gr.basic_block):
             else:
                 b.fromstring(struct.pack('<f', val))
                 flags |= (1<<8)
+                
+        if 'timeint' in d and 'timefrac' in d:
+            intval = d.get('timeint')
+            fracval = d.get('timefrac')
+            
+            if not isinstance(intval, (float)) or not isinstance(fracval, (float)):
+                print("[ERROR] timeint and/or timefrac are not a number:", repr(intval), repr(fracval)
+            else:
+                b.fromstring(struct.pack('<d', intval))
+                b.fromstring(struct.pack('<d', fracval))
+                flags |= (1<<9)
+                flags |= (1<<10)
 
         # tagged parameters:
 
