@@ -82,7 +82,7 @@ class rftap_encap(gr.basic_block):
                 print("[ERROR] dlt is expected in PDU, but it is missing")
             else:
                 val = d.get('dlt')
-                if not isinstance(val, (int,long)):
+                if not isinstance(val, int):
                     print("[ERROR] dlt in PDU is not an integer:", repr(val))
                 else:
                     b.fromstring(struct.pack('<I', val))
@@ -90,7 +90,7 @@ class rftap_encap(gr.basic_block):
         # custom dlt
         elif self.encapsulation_from == 2:
             val = self.custom_dlt
-            if not isinstance(val, (int,long)):
+            if not isinstance(val, int):
                 print("[ERROR] custom dlt is not an integer:", repr(val))
             else:
                 b.fromstring(struct.pack('<I', val))
@@ -98,7 +98,7 @@ class rftap_encap(gr.basic_block):
 
         if 'freq' in d:
             val = d.get('freq')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] freq is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<d', val))
@@ -106,7 +106,7 @@ class rftap_encap(gr.basic_block):
 
         if 'nomfreq' in d:
             val = d.get('nomfreq')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] nomfreq is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<d', val))
@@ -114,7 +114,7 @@ class rftap_encap(gr.basic_block):
 
         if 'freqofs' in d:
             val = d.get('freqofs')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] freqofs is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<d', val))
@@ -122,7 +122,7 @@ class rftap_encap(gr.basic_block):
 
         if 'power' in d:
             val = d.get('power')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] power is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<f', val))
@@ -130,7 +130,7 @@ class rftap_encap(gr.basic_block):
 
         if 'noise' in d:
             val = d.get('noise')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] noise is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<f', val))
@@ -138,7 +138,7 @@ class rftap_encap(gr.basic_block):
 
         if 'snr' in d:
             val = d.get('snr')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] snr is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<f', val))
@@ -146,7 +146,7 @@ class rftap_encap(gr.basic_block):
 
         if 'qual' in d:
             val = d.get('qual')
-            if not isinstance(val, (float,int,long)):
+            if not isinstance(val, (float,int)):
                 print("[ERROR] qual is not a number:", repr(val))
             else:
                 b.fromstring(struct.pack('<f', val))
