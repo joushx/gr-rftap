@@ -83,7 +83,7 @@ class rftap_encap(gr.basic_block):
             else:
                 val = d.get('dlt')
                 if not isinstance(val, (int,long)):
-                    print([ERROR] dlt in PDU is not an integer:", repr(val))
+                    print("[ERROR] dlt in PDU is not an integer:", repr(val))
                 else:
                     b.fromstring(struct.pack('<I', val))
                     flags |= 1
