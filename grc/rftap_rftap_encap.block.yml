@@ -15,11 +15,11 @@ parameters:
   label: Data Link Type
   default: '-1'
   dtype: int
-  hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
+  hide: ${ ('none' if $encapsulation_from() == '3' else 'part') }
 - id: custom_dissector_name
   label: Dissector
   dtype: string
-  hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
+  hide: ${ ('none' if $encapsulation_from() == '3' else 'part') }
 inputs:
 - id: in
   domain: message
