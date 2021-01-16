@@ -181,7 +181,7 @@ class rftap_encap(gr.basic_block):
         if len(b) % 4 != 0:
             print("[ERROR] wrong padding!!!")
 
-        struct.pack_into('<H', b, 4, len(b)/4)
+        struct.pack_into('<H', b, 4, int(len(b)/4))
         struct.pack_into('<H', b, 6, flags)
 
         b.fromstring(vec)
