@@ -1,0 +1,44 @@
+id: rftap_rftap_encap
+label: RFtap Encapsulation
+templates:
+  imports: import rftap
+  make: rftap.rftap_encap($encapsulation_from, $custom_dlt, $custom_dissector_name)
+parameters:
+- id: encapsulation_from
+  label: Type
+  dtype: enum
+  default: 0
+  options: [0, 1, 2, 3]
+  option_labels: ["From PDU \"dlt\" key", "From PDU \"dissector\" key", "Custom DLT", "Custom dissector"]
+- id: custom_dlt
+  label: Data Link Type
+  default: '-1'
+  dtype: int
+  hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
+- id: custom_dissector_name
+  label: Dissector
+  dType: string
+  hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
+inputs:
+- id: in
+  domain: message
+outputs:
+- id: out
+  domain: message
+documentation: |-
+  Create RFTap packet from PDU data and metadata
+  See: https://rftap.github.io/
+
+  Data Link Type (DLT) can be provided from input PDUs, as "dlt" key (integer).
+
+  Alternatively, dissector name can be provided from input PDUs, as "dissector" key (string).
+
+  Alternatively, DLT can be specified in this block parameters (integer).
+
+  Alternatively, dissector name can be specified in this block parameters (string).
+
+  Data Link Types (integer):
+  http://www.tcpdump.org/linktypes.html
+
+  Dissector (String):
+  Name of wireshark dissector (or name of your custom lua/c dissector)
