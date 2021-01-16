@@ -18,7 +18,7 @@ parameters:
   hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
 - id: custom_dissector_name
   label: Dissector
-  dType: string
+  dtype: string
   hide: ${ if $encapsulation_from() == '3' then 'none' else 'part' }
 inputs:
 - id: in
