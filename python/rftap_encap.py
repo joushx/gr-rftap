@@ -169,7 +169,7 @@ class rftap_encap(gr.basic_block):
                     b.fromstring('\0'*padlen)
         # custom dissector name
         elif self.encapsulation_from == 3:
-            val = self.custom_dissector_name
+            val = self.custom_dissector_name.encode("utf8")
             if not isinstance(val, bytes):
                 print("[ERROR] custom dissector name is not a string:", repr(val))
             else:
