@@ -71,7 +71,7 @@ class rftap_encap(gr.basic_block):
         flags = 0
 
         b = array.array('B');
-        hdr = struct.pack('<4sHH', 'RFta', 0, 0)  # len, flags written below
+        hdr = struct.pack('<4sHH', 'RFta'.encode('utf8'), 0, 0)  # len, flags written below
         b.fromstring(hdr)
 
         # this should be done in order of the bitfield:
